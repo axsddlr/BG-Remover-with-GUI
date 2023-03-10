@@ -90,7 +90,7 @@ def apply_abgr(model_path, src, save_path=""):
     if save_path and os.path.isdir(save_path):
         path_dir = save_path
 
-    write_image(path_dir + "/" + path_filename + "_mask" + path_ext, i1)
+    # write_image(path_dir + "/" + path_filename + "_mask" + path_ext, i1)
     write_image(path_dir + "/" + path_filename + "_img" + path_ext, i2)
 
 
@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
     input_list = sys.argv
 
-    print("시작!")
+    print("Start")
 
     if len(input_list) > 1:
         src_list = input_list[1:]
@@ -108,4 +108,4 @@ if __name__ == '__main__':
             print("working on", src)
             apply_abgr(SRC_MODEL, src)
 
-    input("끝!")
+    input("Finished")
