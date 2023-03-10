@@ -5,3 +5,7 @@ __pycache__/
 build/
 dist/
 ABGRemoverGUI.spec
+
+.idea/
+__pycache__/
+*.ckpt
