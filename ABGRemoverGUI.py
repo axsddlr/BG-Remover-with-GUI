@@ -115,7 +115,7 @@ class ProgressDialog(QDialog):
             print("=====Work completed!=====")
 
     def start(self):
-        print("=====작업 시작!=====")
+        print("=====Starting the task=====")
         print()
         worker = Worker(self.filenames, self.parent.settings.value("save_location", ""))
         worker.progressChanged.connect(self.set_value)
@@ -166,7 +166,7 @@ class OptionDialog(QDialog):
         button_reset_save_loc.clicked.connect(self.on_button_clicked_reset_save_loc)
         self.button_reset_save_loc = button_reset_save_loc
 
-        button_close = QPushButton("닫기")
+        button_close = QPushButton("Close")
         button_close.clicked.connect(self.on_button_clicked_close)
         self.button_close = button_close
 
@@ -277,7 +277,7 @@ class MyWidget(QMainWindow):
     def renew_statusbar(self):
         statusbar = self.statusBar()
 
-        statusbar.showMessage("저장 위치 : " + self.get_save_loc())
+        statusbar.showMessage("save location : " + self.get_save_loc())
 
     def get_save_loc(self):
         save_loc = self.settings.value("save_location", "")
@@ -303,7 +303,7 @@ class MyWidget(QMainWindow):
         QMessageBox.information(self, 'About', TEXT_ABOUT)
 
     def apply_abgr_to_files(self, filenames_target, check_png=False):
-        text_warning = '총 ' + f' A total of {str(len(filenames_target))} images will be processed. Do you want to ' \
+        text_warning = f'{str(len(filenames_target))} images will be processed. Do you want to ' \
                               f'proceed?'
 
         if check_png:
@@ -322,7 +322,7 @@ class MyWidget(QMainWindow):
             if len_files != len_pngs:
                 text_warning = 'Selected ' + f'Select only PNG files among the {str(len_files)}files, \n' + text_warning
 
-        reply = QMessageBox.question(self, 'Confirm operation', text_warning, QMessageBox.Yes | QMessageBox.No,
+        reply = QMessageBox.question(self, 'Confirm', text_warning, QMessageBox.Yes | QMessageBox.No,
                                      QMessageBox.No)
         if reply == QMessageBox.Yes:
             ProgressDialog(self, filenames_target)
@@ -363,7 +363,7 @@ if __name__ == '__main__':
 
     if not os.path.isfile(SRC_MODEL):
         QMessageBox.critical(
-            widget, 'Error', "The model file does not exist. The path is 'model/isnetis.ckpt'입니다.")
+            widget, 'Error', "The model file does not exist. The path is 'model/isnetis.ckpt or isnetis.onnx'.")
         QTimer.singleShot(100, widget.quit_app)
     elif len(input_list) > 1:
         src_list = input_list[1:]

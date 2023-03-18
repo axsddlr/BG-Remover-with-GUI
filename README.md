@@ -1,18 +1,18 @@
 # ABG-Remover-with-GUI
 
 
-<img width="255" alt="화면 캡처 2023-03-08 032111" src="https://user-images.githubusercontent.com/127241088/223514509-ad68267b-c3bd-4ca0-ae56-fc19d34b8b61.png">
+<center><img width="255" alt="화면 캡처 2023-03-08 032111" src="https://user-images.githubusercontent.com/127241088/223514509-ad68267b-c3bd-4ca0-ae56-fc19d34b8b61.png"></center>
 
 
-배경과 인물을 분리해주는 ABG Remover를 GUI로 구현했습니다.
+I have implemented a GUI for ABG Remover, which separates the background and the subject in an image.
 
-드래그 드랍, 또는 이미지를 클릭하여 파일을 골라 실행하세요.
+Please run the program by dragging and dropping an image file or by clicking on an image file.
 
-분리된 이미지는 원본 이미지의 폴더 내에 다른 이름으로 저장됩니다.
+The separated image will be saved in the same folder as the original image with a different name.
 
 ===
-
-릴리즈 : https://github.com/DCP-arca/ABG-Remover-with-GUI/releases/
+1. Create model in root folder of project
+2. Model Download : https://huggingface.co/skytnt/anime-seg/blob/main/isnetis.onnx
 
 ===
 
